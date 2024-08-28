@@ -1,0 +1,42 @@
+.animated-tick {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 50%;
+    padding: 8px;  /* Adjusted padding for smaller size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    z-index: 1000;
+  }
+  
+  .animated-tick.visible {
+    opacity: 1;
+  }
+  
+  .tick-icon {
+    stroke: white;
+    transition: stroke 0.5s ease, stroke-dashoffset 1s ease;
+    stroke-dasharray: 100; /* Length of the path */
+    stroke-dashoffset: 100; /* Hide the stroke initially */
+  }
+  
+  .animated-tick.visible .tick-icon {
+    stroke: white;
+    stroke-dashoffset: 0; /* Reveal the stroke */
+    animation: fillColor 1s forwards;
+  }
+  
+  @keyframes fillColor {
+    from {
+      stroke: white;
+    }
+    to {
+      stroke: #1877f2; /* Blue color */
+    }
+  }
+  
